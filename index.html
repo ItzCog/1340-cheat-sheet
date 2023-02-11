@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="style.css" rel="stylesheet">
+  <title>ENGG1340</title>
+</head>
+<body>
+  <div class="page">
+    <h1 class="main-title">ENGG1340 Cheat Sheet</h1>
+    <p class="small-text">Presented to you by Ma "Cog" Yuanche</p>
+    <p class="small-text">Powered by HTML & CSS</p>
+    <section class="sub-section">
+      <h2 class="sub-header">Common Command Line Tools</h2>
+      <ul class="section-list">
+        <li>arguments in round brackets are optional</li>
+        <li><b>uniq:</b> remove repeated adjacent lines (usage: uniq [input] (output))</li>
+        <li><b>grep:</b> find line(s) that matches with the given pattern (usage: grep [pattern] [input])</li>
+        <li><b>ls:</b> list all files under current directory (usage: ls (options))</li>
+        <li><b>spell:</b> returns all misspelled word in input (usage: spell [input])</li>
+        <li><b>diff:</b> differentiate two files (usage: diff [file1] [file2])</li>
+        <li><b>chmod:</b> edit file access (usage: chmod [access] [file])</li>
+        <li><b>cp:</b> copy [file1] into [file2] (usage: cp [file1] [file2])</li>
+      </ul>
+    </section>
+    <section class="sub-section">
+      <h2 class="sub-header">Bash Scripting Syntax</h2>
+      <ul class="section-list">
+        <li><b>read [variable name]:</b> read user input and store it into a variable called [variable name]</li>
+        <li><b>let [string]:</b> treat the string as bash command(s)</li>
+        <li><b>string comparison:</b> equal [ $a == $b ], unequal [ $a == $b ], lesser [ $a \< $b ], greater [ $a \> $b ]</li>
+        <li>
+          <b>number comparison:</b>
+          equal [ $a -eq $b ],
+          unequal [ $a -ne $b ],
+          lesser [ $a -lt $b ],
+          not greater [ $a -le $b ],
+        </li>
+        <li class="indented">
+          greater [ $a -gt $b ],
+          not lesser [ $a -ge $b ]
+        </li>
+        <li>
+          <b>file/directory checking:</b>
+          exists [ -e $name ],
+          is file [ -f $name ],
+          is directory [ -d $name ],
+          size > 0 (not empty) [ -s $name ],
+        </li>
+        <li class="indented">
+          is readable/writable/executable [ -r/-w/-x $name ]
+        </li>
+        <li>
+          <b>string operation:</b>
+          string length ${#str},
+          substring starting from $pos with length of $len ${str:$pos:$len}
+        </li>
+        <li class="indented">
+          string with first occurrence of $from replaced with $to ${str/$from/$to}
+        </li>
+        <li>
+          <b>command line arguments:</b>
+          <b>$#:</b> number of arguments
+          <b>${n}:</b> the n-th argument (the 0th is the shell script)
+        </li>
+      </ul>
+    </section>
+    <section class="sub-section">
+      <h2 class="sub-header">Common Techniques</h2>
+      <ul class="section-list">
+        <li>
+          <b>rm -rf [directory]</b>
+          deletes [directory], along with all files and subdirectories inside
+        </li>
+        <li>
+          <b>g++ [cpp] -o [o] > [err]</b>
+          compiles [cpp] into [o] and stores error message (if any) into [err]; then use -f to check if there's then error
+        </li>
+        <li>
+          <b>./[o] < [in] > [out]</b>
+          runs [o] with [in] as input and stores the output into [o]
+        </li>
+      </ul>
+    </section>
+    <section class="sub-section">
+      <h2 class="sub-header">Miscellaneous Bash Things</h2>
+      <ul class="section-list">
+        <li>
+          <b>To be added</b>
+          :billy_sleeping:
+        </li>
+      </ul>
+    </section>
+  </div>
+  <div class="page">
+
+  </div>
+</body>
+</html>

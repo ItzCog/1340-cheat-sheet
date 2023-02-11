@@ -34,7 +34,8 @@ This sheet is a reinforcement, not a substitute for the lecture PPTs and your ow
 the exam without prior studying, or using this sheet as the only learning material does not guarantee any improvements
 for your score.
 
-This sheet's content selection is based on my personal experiences and might not be suitable for everyone.
+This sheet's content selection is based on my personal experiences and might not be suitable for everyone. The format
+of this sheet is not standardized and might not make sense to everyone.
 
 This sheet is not guaranteed to be 100% accurate. I will try to make it as precise as possible, and I also welcome
 anyone to point out any mistakes or give any suggestions, but I still can't promise that this cheat sheet will be 

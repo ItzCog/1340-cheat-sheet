@@ -32,7 +32,10 @@
       <ul class="section-list">
         <li><b>read [variable name]</b> read user input and store it into a variable called [variable name]</li>
         <li><b>let [string]</b> treat the string as bash command(s)</li>
-        <li><b>string comparison</b> equal [ $a == $b ]; unequal [ $a != $b ]; lesser [ $a \< $b ]; greater [ $a \> $b ]</li>
+        <li>
+          <b>string comparison</b>
+          equal [ $a == $b ]; unequal [ $a != $b ]; lesser [ $a \< $b ]; greater [ $a \> $b ]
+        </li>
         <li>
           <b>number comparison</b>
           equal [ $a -eq $b ];
@@ -57,14 +60,14 @@
           string with first occurrence of $from replaced with $to ${str/$from/$to}
         </li>
         <li>
-          <b>command line arguments</b>
-          <b>$#:</b> number of arguments
-          <b>${n}:</b> the n-th argument (the 0th is the shell script)
+          <b>command line arguments:</b>
+          <b>$#</b> number of arguments
+          <b>${n}</b> the n-th argument (the 0th is the shell script)
         </li>
       </ul>
     </section>
     <section class="sub-section">
-      <h2 class="sub-header">Common Techniques</h2>
+      <h2 class="sub-header">Common Bash Techniques</h2>
       <ul class="section-list">
         <li>
           <b>tar cvf [target] [file1] [file2] [file3] ...</b>
@@ -85,7 +88,11 @@
         </li>
         <li>
           <b>g++ [cpp] -o [o] > [err]</b>
-          compiles [cpp] into [o] and stores error message (if any) into [err]; then use -f to check if there's then error
+          compiles [cpp] into [o] and stores error message (if any) into [err] (use -f to check if there's an error)
+        </li>
+        <li>
+          <b>g++ -c [cpp]</b>
+          compile & assembly without linking (use in makefile for function implementation files)
         </li>
         <li>
           <b>./[o] < [in] > [out]</b>
@@ -94,11 +101,28 @@
       </ul>
     </section>
     <section class="sub-section">
-      <h2 class="sub-header">Miscellaneous Bash Things</h2>
+      <h2 class="sub-header">
+        Makefile
+      </h2>
       <ul class="section-list">
         <li>
-          <b>To be added</b>
-          :billy_sleeping:
+          <b>[target]: [dependency1] [dependency2] ...</b>
+        </li>
+        <li class="indented">
+          <b>command</b>
+        </li>
+        <li>
+          <b>macros</b>
+          define: VARNAME = value;
+          get value: $(VARNAME)
+        </li>
+        <li>
+          <b>special macros:</b>
+          $@ the target; $^ the dependency list; $< the leftmost dependency
+        </li>
+        <li>
+          <b>.PHONY [target1] [target2] ...</b>
+          fake target; corresponding command will always run (can be used for cleaning command)
         </li>
       </ul>
     </section>

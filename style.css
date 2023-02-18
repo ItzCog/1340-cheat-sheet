@@ -12,13 +12,12 @@
     font-family: sans-serif;
 
     display: flex;
-    gap: 2px;
+    gap: 1px;
     align-items: center;
     flex-direction: column;
 }
 
 .main-title {
-    font-style: italic;
     font-size: 18px;
     margin-top: 8px;
 }
@@ -43,16 +42,16 @@
 }
 
 .sub-header {
-    margin: 0 6px 2px 6px;
+    margin: 0 6px 0 6px;
     font-weight: 600;
     font-size: 12px;
-    font-style: italic;
 }
 
 .section-list {
     list-style: none;
     font-size: 8px;
-    margin-left: 16px;
+    margin-left: 20px;
+    text-indent: -4px;
 
     line-height: 1.1;
 }

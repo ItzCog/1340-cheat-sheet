@@ -14,12 +14,11 @@ Follow the instructions to have it printed on a paper.
 So far, this sheet covers the following aspects of this course:
 
 - A good amount of portion for Bash scripting, including some advanced tools, syntax and techniques.
+- A basic guide about Makefile syntax.
 
-I have decided not to add the basics for C++ part. This is because C++ basics are relatively easy to memorize,
+I have decided not to add the basics for C++ part. This is because C++ basics are relatively easy to remember,
 especially with you already having learned Python first. On the other hand, Bash scripting syntax does not have so much
 common with Python (or any other programming language I know about) so there is much more things to memorize.
-
-I might consider adding in more advanced points about C++ in the future.
 
 More content will be added as the course progresses.
 

@@ -7,7 +7,7 @@
 .page {
     height: 297mm;
     width: 210mm;
-    border: 4px solid #111;
+    /*border: 4px solid #111;*/
 
     font-family: sans-serif;
 
@@ -58,4 +58,12 @@
 
 .indented {
     margin-left: 6px;
+}
+
+.arg {
+    text-decoration: underline;
+}
+
+.opt-arg {
+    text-decoration: wavy underline;
 }

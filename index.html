@@ -13,25 +13,47 @@
     <section class="sub-section">
       <h2 class="sub-header">Common Command Line Tools</h2>
       <ul class="section-list">
-        <li>arguments in round brackets are optional</li>
-        <li><b>echo</b> output (usage: echo [string])</li>
-        <li><b>uniq</b> remove repeated adjacent lines (usage: uniq [input] (output))</li>
-        <li><b>grep</b> find line(s) that matches with the given pattern (usage: grep [pattern] [input])</li>
-        <li><b>ls</b> list all files under current directory (usage: ls (options))</li>
-        <li><b>spell</b> returns all misspelled word in input (usage: spell [input])</li>
-        <li><b>diff</b> differentiate two files (usage: diff [file1] [file2])</li>
-        <li><b>chmod</b> edit file access (usage: chmod [access] [file])</li>
-        <li><b>cp</b> copy [file1] into [file2] (usage: cp [file1] [file2])</li>
-        <li><b>mv</b> move/rename file (usage: mv [filename] [target])</li>
-        <li><b>tar</b> archive tool (usage: tar [option] [target file] (files))</li>
-        <li><b>rm</b> remove file/directory (usage: rm (option) [file])</li>
+        <li>underline indicates an argument; arguments with wavy underline are optional</li>
+        <li><b>echo</b> output (usage: echo <span class="arg">string</span>)</li>
+        <li><b>sort</b> sort the lines in input (usage: sort <span class="arg">input</span>)</li>
+        <li><b>uniq</b> remove repeated adjacent lines (usage: uniq
+          <span class="opt-arg">options</span>
+          <span class="arg">input</span>
+          <span class="arg">output</span>))</li>
+        <li><b>grep</b> find line(s) that matches with the given pattern (usage: grep
+          <span class="arg">pattern</span>
+          <span class="arg">input</span>)</li>
+        <li><b>ls</b> list all files under current directory (usage: ls
+          <span class="opt-arg">options</span>)</li>
+        <li><b>spell</b> returns all misspelled word in input (usage: spell
+          <span class="arg">input</span>)</li>
+        <li><b>diff</b> differentiate two files (usage: diff
+          <span class="arg">file1</span>
+          <span class="arg">file2</span>)</li>
+        <li><b>chmod</b> edit file access (usage: chmod
+          <span class="arg">access</span>
+          <span class="arg">file</span>)</li>
+        <li><b>cp</b> copy file1 into file2 (usage: cp
+          <span class="arg">file1</span>
+          <span class="arg">file2</span>)</li>
+        <li><b>mv</b> move/rename file (usage: mv
+          <span class="arg">filename</span>
+          <span class="arg">target</span>)</li>
+        <li><b>tar</b> archive tool (usage: tar
+          <span class="arg">option</span>
+          <span class="arg">target file</span>
+          <span class="opt-arg">files</span>)</li>
+        <li><b>rm</b> remove file/directory (usage: rm
+          <span class="opt-arg">options</span>
+          <span class="arg">file</span>)</li>
       </ul>
     </section>
     <section class="sub-section">
       <h2 class="sub-header">Bash Scripting Tools & Syntax</h2>
       <ul class="section-list">
-        <li><b>read [variable name]</b> read user input and store it into a variable called [variable name]</li>
-        <li><b>let [string]</b> treat the string as bash command(s)</li>
+        <li><b>read <span class="arg">variable name</span></b>
+          read user input and store it into a variable called <span class="arg">variable name</span></li>
+        <li><b>let <span class="arg">string</span></b> treat the string as bash command(s)</li>
         <li>
           <b>string comparison</b>
           equal [ $a == $b ]; unequal [ $a != $b ]; lesser [ $a \< $b ]; greater [ $a \> $b ]
@@ -56,8 +78,11 @@
         <li>
           <b>string operation</b>
           string length ${#str};
-          substring starting from $pos with length of $len ${str:$pos:$len}
+          substring starting from $pos with length of $len ${str:$pos:$len};
           string with first occurrence of $from replaced with $to ${str/$from/$to}
+        </li>
+        <li class="indented">
+          string with all occurrences of $from replaced with $to ${str//$from/$to}
         </li>
         <li>
           <b>command line arguments:</b>
@@ -70,34 +95,61 @@
       <h2 class="sub-header">Common Bash Techniques</h2>
       <ul class="section-list">
         <li>
-          <b>tar cvf [target] [file1] [file2] [file3] ...</b>
-          creates archive file [target] out of the [file]s
+          <b>tar cvf <span class="arg">target</span>
+            <span class="arg">file1</span>
+            <span class="arg">file2</span>
+            <span class="arg">file3</span> ...</b>
+          creates archive file <span class="arg">target</span> out of the files
         </li>
         <li>
-          <b>tar xvf [target]</b>
-          un-archives [target]
+          <b>tar xvf <span class="arg">target</span></b>
+          un-archives <span class="arg">target</span>
         </li>
         <li>
-          <b>grep "[$string]" [input]</b>
-          (here the square brackets around $string is part of the code, not an indicator for arguments) find entries
-          that contains any character that appears in $string
+          <b>uniq -c <span class="arg">input</span></b>
+          after removing repetition, prefix each line with a number representing the repetition count
         </li>
         <li>
-          <b>rm -rf [directory]</b>
-          deletes [directory], along with all files and subdirectories inside
+          <b>grep "[<span class="arg">string</span>]" <span class="arg">input</span></b>
+          find entries that contains any character that appears in <span class="arg">string</span>
         </li>
         <li>
-          <b>g++ [cpp] -o [o] > [err]</b>
-          compiles [cpp] into [o] and stores error message (if any) into [err] (use -f to check if there's an error)
+          <b>rm -rf <span class="arg">directory</span></b>
+          deletes <span class="arg">directory</span>, along with all files and subdirectories inside
         </li>
         <li>
-          <b>g++ -c [cpp]</b>
-          compile & assembly without linking (use in makefile for function implementation files)
+          <b>cut -d <span class="arg">separator</span> -f <span class="arg">n</span>
+            <span class="arg">input</span></b>
+          returns the <span class="arg">n</span>th entry in <span class="arg">input</span> using
+          <span class="arg">separator</span> (index starts from 1)
         </li>
         <li>
-          <b>./[o] < [in] > [out]</b>
-          runs [o] with [in] as input and stores the output into [o]
+          <b>g++ <span class="arg">cpp</span> -o <span class="arg">o</span> > <span class="arg">err</span></b>
+          compiles <span class="arg">cpp</span> into <span class="arg">o</span> and stores error message (if any) into
+          <span class="arg">err</span> (use -f to check if there's an error)
         </li>
+        <li>
+          <b>g++ -c <span class="arg">cpp</span></b>
+          compile & assembly without linking (use in makefile for .cpp function definition files)
+        </li>
+        <li>
+          <b>./<span class="arg">o</span> < <span class="arg">in</span> > <span class="arg">out</span></b>
+          runs <span class="arg">o</span> with <span class="arg">in</span> as input and stores the output into
+          <span class="arg">o</span>
+        </li>
+      </ul>
+    </section>
+    <section class="sub-section">
+      <h2 class="sub-header">Additional Helpful Bash Features</h2>
+      <ul class="section-list">
+        <li><b>Arrays</b></li>
+        <li>declaration: <span class="arg">varname</span> = (<span class="arg">elem0</span>
+          <span class="arg">elem1</span>
+          <span class="arg">elem2</span>...) </li>
+        <li>get value: ${<span class="arg">varname</span>[<span class="arg">index</span>]} (index starts from 0)</li>
+        <li class="indented">get all values: ${<span class="arg">varname</span>[*]}</li>
+        <li>add item: <span class="arg">varname</span>+=(<span class="arg">elem</span>)</li>
+        <li>remove item: unset <span class="arg">varname</span>[<span class="arg">index</span>]</li>
       </ul>
     </section>
     <section class="sub-section">
@@ -106,22 +158,23 @@
       </h2>
       <ul class="section-list">
         <li>
-          <b>[target]: [dependency1] [dependency2] ...</b>
+          <b><span class="arg">target</span>: <span class="arg">dependency1</span>
+            <span class="arg">dependency2</span> ...</b>
         </li>
         <li class="indented">
           <b>command</b>
         </li>
         <li>
           <b>macros</b>
-          define: VARNAME = value;
-          get value: $(VARNAME)
+          define: <span class="arg">VARNAME</span> = value;
+          get value: $(<span class="arg">VARNAME</span>)
         </li>
         <li>
           <b>special macros:</b>
           $@ the target; $^ the dependency list; $< the leftmost dependency
         </li>
         <li>
-          <b>.PHONY [target1] [target2] ...</b>
+          <b>.PHONY: <span class="arg">target1</span> <span class="arg">target2</span> ...</b>
           fake target; corresponding command will always run (good for clean up command)
         </li>
       </ul>

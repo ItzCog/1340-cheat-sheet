@@ -7,7 +7,7 @@
 .page {
     height: 297mm;
     width: 210mm;
-    border: 4px solid #111;
+    /*border: 4px solid #111;*/
 
     font-family: sans-serif;
 
@@ -31,7 +31,7 @@
 .sub-section {
     margin: 2px 8px;
     align-self: stretch;
-    border: 2px solid #111;
+    /*border: 2px solid #111;*/
     /*background-color: #666;*/
 
     display: flex;

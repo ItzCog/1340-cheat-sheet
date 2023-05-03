@@ -8,14 +8,14 @@
 <body>
   <div class="page">
     <h1 class="main-title">ENGG1340 Cheat Sheet</h1>
-    <p class="small-text">Presented to you by Ma "Cog" Yuanche</p>
-    <p class="small-text">Powered by HTML & CSS</p>
     <section class="sub-section">
       <h2 class="sub-header">Common Command Line Tools</h2>
       <ul class="section-list">
         <li>underline indicates an argument; arguments with wavy underline are optional</li>
         <li><b>echo</b> output (usage: echo <span class="arg">string</span>)</li>
-        <li><b>sort</b> sort the lines in input (usage: sort <span class="arg">input</span>)</li>
+        <li><b>sort</b> sort the lines in input by <span class="arg">column</span>(usage: sort <span class="opt-arg">options</span>
+          <span class="arg">input</span>
+          -k <span class="arg">column</span>)</li>
         <li><b>uniq</b> remove repeated adjacent lines (usage: uniq
           <span class="opt-arg">options</span>
           <span class="arg">input</span>
@@ -51,8 +51,8 @@
     <section class="sub-section">
       <h2 class="sub-header">Bash Scripting Tools & Syntax</h2>
       <ul class="section-list">
-        <li><b>read <span class="arg">variable name</span></b>
-          read user input and store it into a variable called <span class="arg">variable name</span></li>
+        <li><b>read <span class="arg">varname</span></b>
+          read user input and store it into a variable called <span class="arg">varname</span></li>
         <li><b>let <span class="arg">string</span></b> treat the string as bash command(s)</li>
         <li>
           <b>string comparison</b>
@@ -90,9 +90,55 @@
           <b>${n}</b> the n-th argument (the 0th is the shell script)
         </li>
       </ul>
+      <ul class="section-list">
+        <li><b>for loop</b> for <span class="arg">iterator</span> in <span class="arg">$iterable</span>;
+        do <span class="arg">loop body</span>; done</li>
+        <li class="indented"><b>or</b> for ((
+          <span class="arg">expr1</span>;
+          <span class="arg">expr2</span>;
+          <span class="arg">expr3</span>
+          ));
+          do <span class="arg">loop body</span>; done</li>
+        <li><b>if statement</b>
+          if [ <span class="arg">condition1</span> ];
+          then <span class="arg">branch1</span>;
+          elif [ <span class="arg">condition2</span> ];
+          then <span class="arg">branch2</span>;
+          else;
+          <span class="arg">branch3</span>;
+          fi
+        </li>
+      </ul>
     </section>
     <section class="sub-section">
-      <h2 class="sub-header">Common Bash Techniques</h2>
+      <h2 class="sub-header">sort options</h2>
+      <ul class="section-list">
+        <li><b>-b</b> ignore spaces at front</li>
+        <li><b>-d</b> handle only letters, numbers & spaces</li>
+        <li><b>-f</b> case insensitive</li>
+        <li><b>-n</b> numeric sort</li>
+        <li><b>-u</b> unique</li>
+        <li><b>-r</b> reverse order</li>
+        <li><b>-t</b> column separator</li>
+        <li><b>-s</b> stable sort</li>
+      </ul>
+    </section>
+    <section class="sub-section">
+      <h2 class="sub-header">chmod</h2>
+      <ul class="section-list">
+        <li><b>basic format</b> chmod
+          <span class="arg">group</span> <span class="arg">operator</span> <span class="arg">permission</span>
+          <span class="arg">file</span>
+        </li>
+        <li class="indented">no space between <span class="arg">group</span>, <span class="arg">operator</span> and
+          <span class="arg">permission</span></li>
+        <li><b>group</b> u: file owner; g: file owner's group; o: other users; a: all users</li>
+        <li><b>operator</b> +: add; -: remove; =: set</li>
+        <li><b>permission</b> r: read; w: write; x: execute</li>
+      </ul>
+    </section>
+    <section class="sub-section">
+      <h2 class="sub-header">Misc</h2>
       <ul class="section-list">
         <li>
           <b>tar cvf <span class="arg">target</span>
@@ -118,10 +164,20 @@
           deletes <span class="arg">directory</span>, along with all files and subdirectories inside
         </li>
         <li>
+          <b>rm -f <span class="arg">target</span></b>
+          force delete, gives no prompt & does not raise errors if <span class="arg">target</span>
+          does not exist (good for Makefile clean up)
+        </li>
+        <li>
           <b>cut -d <span class="arg">separator</span> -f <span class="arg">n</span>
             <span class="arg">input</span></b>
           returns the <span class="arg">n</span>th entry in <span class="arg">input</span> using
           <span class="arg">separator</span> (index starts from 1)
+        </li>
+        <li>
+          <b>cut -c <span class="arg">n</span> <span class="arg">input</span></b>
+          returns the <span class="arg">n</span>th character in <span class="arg">input</span>
+          (index starts from 1)
         </li>
         <li>
           <b>g++ <span class="arg">cpp</span> -o <span class="arg">o</span> > <span class="arg">err</span></b>
@@ -140,16 +196,57 @@
       </ul>
     </section>
     <section class="sub-section">
+      <h2 class="sub-header">regex</h2>
+      <ul class="section-list">
+        <li><b>.</b> all characters</li>
+        <li><b>\w</b> word (letters & digits); <b>\d</b> digits; <b>\s</b> whitespace</li>
+        <li><b>\W</b> not word; <b>\D</b> not digits; <b>\S</b> not whitespace</li>
+        <li><b>[abc]</b> any of a, b, c; <b>[^abc]</b> not a, b or c</li>
+        <li><b>[a-g]</b> character between a & g</li>
+        <li><b>^abc&</b> start / end of the line</li>
+        <li><b>\b</b> word boundary; <b>\B</b> not word boundary</li>
+        <li><b>a*</b> 0 or more; <b>a+</b> 1 or more; <b>a?</b> 0 or 1</li>
+        <li><b>a{5}</b> exactly 5; <b>a{2,}</b> 2 or more</li>
+        <li><b>a{1,3}</b> between 1 & 3</li>
+        <li><b>a+? a{2,}?</b> match as few as possible</li>
+        <li><b>ab|cd</b> ab or cd</li>
+      </ul>
+    </section>
+  </div>
+
+
+  <div class="page">
+    <section class="sub-section">
       <h2 class="sub-header">Additional Helpful Bash Features</h2>
       <ul class="section-list">
         <li><b>Arrays</b></li>
-        <li>declaration: <span class="arg">varname</span> = (<span class="arg">elem0</span>
-          <span class="arg">elem1</span>
-          <span class="arg">elem2</span>...) </li>
+        <li>declaration: <span class="arg">varname</span>=(<span class="opt-arg">elem0</span>
+          <span class="opt-arg">elem1</span>
+          <span class="opt-arg">elem2</span>...) </li>
         <li>get value: ${<span class="arg">varname</span>[<span class="arg">index</span>]} (index starts from 0)</li>
         <li class="indented">get all values: ${<span class="arg">varname</span>[*]}</li>
+        <li>set value: <span class="arg">varname</span>[<span class="arg">key</span>]=<span class="arg">element
+        </span></li>
         <li>add item: <span class="arg">varname</span>+=(<span class="arg">elem</span>)</li>
         <li>remove item: unset <span class="arg">varname</span>[<span class="arg">index</span>]</li>
+        <li><b>Associative Arrays</b></li>
+        <li>declaration: declare -A <span class="arg">varname</span>=([<span class="opt-arg">key0</span>]=<span class="opt-arg">value0</span>
+          [<span class="opt-arg">key1</span>]=<span class="opt-arg">value1</span>
+          [<span class="opt-arg">key2</span>]=<span class="opt-arg">value2</span>...)
+        </li>
+        <li>get value: ${<span class="arg">varname</span>[<span class="arg">key</span>]}</li>
+        <li class="indented">get all values: ${<span class="arg">varname</span>[*]}</li>
+        <li class="indented">get all keys: ${!<span class="arg">varname</span>[*]}</li>
+        <li>set value/add item: <span class="arg">varname</span>[<span class="arg">key</span>]=<span class="arg">value</span></li>
+        <li>check if key exists: [ ${<span class="arg">varname</span>[<span class="arg">key</span>]} ]</li>
+        <li>remove item: unset <span class="arg">varname</span>[<span class="arg">key</span>]</li>
+
+        <li><b>printf</b></li>
+        <li>usage: printf <span class="arg">format</span> <span class="opt-arg">arguments</span></li>
+        <li>format string uses the same style as C language printf</li>
+        <li>if there are more arguments than needed, formatted string will be printed multiple times, cycling
+        through the arguments</li>
+        <li>specifiers without arguments becomes 0 / empty string</li>
       </ul>
     </section>
     <section class="sub-section">
@@ -179,9 +276,6 @@
         </li>
       </ul>
     </section>
-  </div>
-  <div class="page">
-
   </div>
 </body>
 </html>
